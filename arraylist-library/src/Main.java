@@ -6,9 +6,10 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Library musicPlaylist = new Library();
-        musicPlaylist.addItem("Beat it");
-        musicPlaylist.addItem("Not like us");
+        Library musicPlaylist = new Library();    //creates a new object based on the class library 
+        
+        musicPlaylist.addItem("Beat it");         //adds a bunch of items into the list for testing
+        musicPlaylist.addItem("Not like us"); 
         musicPlaylist.addItem("God only knows");
         musicPlaylist.addItem("Creator");
         musicPlaylist.addItem("You Spin Me Round");
@@ -21,7 +22,7 @@ public class Main {
         Scanner playerInput = new Scanner(System.in);
 
         while (running) {
-            System.out.print(
+            System.out.print(    //prints out the rules and turns out """ is a way to keep the formating of a string with out \n, this was from intelliJ
                     """
                             Play - Plays the next song.
                             Skip - Skips the next song.
@@ -36,9 +37,9 @@ public class Main {
             );
             String input = playerInput.nextLine();         //grabs the player input
 
-            switch (input) {
+            switch (input) {    //uses switch case with -> from intelliJ
                 case "Play", "play" -> {
-                    if(!musicPlaylist.get_list().isEmpty()){
+                    if(!musicPlaylist.get_list().isEmpty()){    //.isEmpty checks if the list is empty or not
                         System.out.printf("%nNow playing - %s%n", musicPlaylist.getNextItem());
                     }
                     else{
@@ -81,7 +82,7 @@ public class Main {
                         System.out.print("\nWhat would you like to find?: ");
                         playerInput = new Scanner(System.in);
                         input = playerInput.nextLine();
-                        if (musicPlaylist.get_list().contains(input)) {
+                        if (musicPlaylist.get_list().contains(input)) {    //checks if the string value is in the library object
                             System.out.printf("%n%s is in position: %s%n", input, musicPlaylist.find(input) + 1);
                         } else {
                             System.out.println("Song not in playlist.");
@@ -92,9 +93,9 @@ public class Main {
                     }
                 }
                 case "Exit", "exit" -> running = false;
-                default -> System.out.println("Not proper input.");
+                default -> System.out.println("Not proper input.");    //default again from intelliJ
             }
-            System.out.println("\n" + musicPlaylist.get_list() + "\n");
+            System.out.println("\n" + musicPlaylist.get_list() + "\n");   
         }
     }
 }
