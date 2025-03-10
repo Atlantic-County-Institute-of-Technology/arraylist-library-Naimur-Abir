@@ -1,38 +1,38 @@
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.Comparator;    //used instead of sort
 import java.util.Random;
 
 public class Library {
     private final ArrayList<String> library;
 
-    public Library(){
+    public Library(){            //basic constuctor for the libarary class
         this.library = new ArrayList<>();
     }
 
-    public void addItem(String item){
+    public void addItem(String item){        //adds a string to the list based on the arguments
         this.library.add(item);
     }
 
-    public void removeItem(String item){
+    public void removeItem(String item){     //removes an item from the list based on the arguments
         this.library.remove(library.indexOf(item));
     }
 
-    public String getNextItem(){
+    public String getNextItem(){              //removes the first value in the list at index zero and returns it, this function was added by intelliJ
         return this.library.removeFirst();
     }
-    public void skipNextItem(){
+    public void skipNextItem(){                //removes the first value in the list at index zero but doesn't return anything, this function was added by intelliJ
         this.library.removeFirst();
     }
 
-    public void sortAlphabet(){
+    public void sortAlphabet(){                //sorts the list alphabetically comparator object was added by intelliJ
         this.library.sort(Comparator.naturalOrder());;
     }
 
-    public int find(String item){
+    public int find(String item){              //finds the index of a string object and returns it
         return this.library.indexOf(item);
     }
 
-    public void shuffle(){
+    public void shuffle(){                      //shuffles the deck by getting the current index and swapping it with a random one except for itself
         int len = this.library.size() - 1;
         Random rand = new Random();
         for(int loop = 0; loop <= len; loop++){
@@ -46,7 +46,7 @@ public class Library {
         }
     }
 
-    public ArrayList<String> get_list() {
+    public ArrayList<String> get_list() {      //Function to get the list for printing and other purposes 
         return this.library;
     }
 }
