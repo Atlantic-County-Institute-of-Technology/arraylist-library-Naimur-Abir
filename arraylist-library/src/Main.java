@@ -38,7 +38,7 @@ public class Main {
             String input = playerInput.nextLine();         //grabs the player input
 
             switch (input) {    //uses switch case with -> from intelliJ
-                case "Play", "play" -> {
+                case "Play", "play" -> {    //plays the next song in the library
                     if(!musicPlaylist.get_list().isEmpty()){    //.isEmpty checks if the list is empty or not
                         System.out.printf("%nNow playing - %s%n", musicPlaylist.getNextItem());
                     }
@@ -46,7 +46,7 @@ public class Main {
                         System.out.println("\nThere is nothing in the playlist.");
                     }
                 }
-                case "Skip", "skip" -> {
+                case "Skip", "skip" -> {    //skips the next song in the library
                     if(!musicPlaylist.get_list().isEmpty()){
                         musicPlaylist.skipNextItem();
                     }
@@ -54,13 +54,13 @@ public class Main {
                         System.out.println("\nThere is nothing in the playlist.");
                     }
                 }
-                case "Add", "add" -> {
+                case "Add", "add" -> {    //adds a song to the library
                     System.out.print("\nWhat would you like to add?:");
                     playerInput = new Scanner(System.in);
                     input = playerInput.nextLine();
                     musicPlaylist.addItem(input);
                 }
-                case "Remove", "remove" -> {
+                case "Remove", "remove" -> {    //removes a song from the library
                     if(!musicPlaylist.get_list().isEmpty()){
                         System.out.print("\nWhat would you like to remove?:");
                         playerInput = new Scanner(System.in);
@@ -75,9 +75,9 @@ public class Main {
                         System.out.println("\nThere is nothing in the playlist.");
                     }
                 }
-                case "Sort", "sort" -> musicPlaylist.sortAlphabet();
-                case "Shuffle", "shuffle" -> musicPlaylist.shuffle();
-                case "Find", "find" -> {
+                case "Sort", "sort" -> musicPlaylist.sortAlphabet();    //sorts the library alphabetically
+                case "Shuffle", "shuffle" -> musicPlaylist.shuffle();    //shuffles the library
+                case "Find", "find" -> {    //gives the index of the song in the list of the library plus one because the user probably doesn't start counting from zero
                     if(!musicPlaylist.get_list().isEmpty()) {
                         System.out.print("\nWhat would you like to find?: ");
                         playerInput = new Scanner(System.in);
@@ -88,12 +88,12 @@ public class Main {
                             System.out.println("Song not in playlist.");
                         }
                     }
-                    else{
+                    else{  
                         System.out.println("\nThere is nothing in the playlist.");
                     }
                 }
-                case "Exit", "exit" -> running = false;
-                default -> System.out.println("Not proper input.");    //default again from intelliJ
+                case "Exit", "exit" -> running = false;        //stops the code after executed
+                default -> System.out.println("Not proper input.");    //default again from intelliJ, this basically says that if none of the conditions above are met then this will be the default 
             }
             System.out.println("\n" + musicPlaylist.get_list() + "\n");   
         }
